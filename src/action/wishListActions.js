@@ -1,8 +1,8 @@
 import { ADD_TO_WishList, REMOVE_FROM_WishList,} from "./types";
 
-export const addToWishList = (items, product) => (dispatch) => {
-  console.log(items, product,'widhhh')
-    const WishListItem = items.slice();
+export const addToWishList = (list, product) => (dispatch) => {
+  console.log(list, product,'widhhh')
+    const WishListItem = list.slice();
     let productAlreadyInWishList = false;
   
     WishListItem.forEach((cp) => {
@@ -19,8 +19,8 @@ export const addToWishList = (items, product) => (dispatch) => {
     dispatch({ type: ADD_TO_WishList, payload: { WishListItem } });
   };
   
-  export const removeFromWishList = (items, product) => (dispatch) => {
-    const WishListItem = items.slice().filter((a) => a.id !== product.id);
+  export const removeFromWishList = (list, product) => (dispatch) => {
+    const WishListItem = list.slice().filter((a) => a.id !== product.id);
     localStorage.setItem("WishListItem", JSON.stringify(WishListItem));
     dispatch({ type: REMOVE_FROM_WishList, payload: { WishListItem } });
   };

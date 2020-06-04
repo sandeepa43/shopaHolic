@@ -51,8 +51,10 @@ console.log(WishListItem,'wishlist');
     );
   }
 }
-const mapStateToProps = (state) => ({
-  // WishListItem: state.wishList,
-  WishListItem: state.cart.items,
+const mapStateToProps = (state) => (
+  console.log(state,'wwmap'),
+  {
+    WishListItem: state.WishList.list,
+
 });
 export default connect(mapStateToProps, { addToWishList, removeFromWishList })(WishList);

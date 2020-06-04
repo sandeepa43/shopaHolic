@@ -68,11 +68,12 @@ class Products extends Component {
         </div>;
   }
 }
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => (
+  console.log(state,'mapstat'),
+  {
   products: state.products.filteredItems,
   cartItems: state.cart.items,
-  // WishListItem: state.products.wishList,
-  WishListItem: state.cart.items,
+  WishListItem: state.WishList.list,
 });
 
 export default connect(mapStateToProps, { fetchProducts, addToCart ,addToWishList})(Products);
